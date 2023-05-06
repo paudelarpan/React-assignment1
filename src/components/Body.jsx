@@ -3,10 +3,10 @@ import { useState } from "react";
 const Body = ({product,category ,price,description,productimage}) => {
 
     const[count,setCount] = useState(0);
-    const toggle = () => {
+    const addItems = () => {
         setCount((count) => count + 1);
     }
-        const untoggle = () => {
+        const removeItems = () => {
             setCount((count) => (count<=0)?0:count-1);
     }
     return (
@@ -20,9 +20,9 @@ const Body = ({product,category ,price,description,productimage}) => {
 				<h3>Rs. {price}</h3>
                 <span class="span">Quantity:</span>
                 <div class="quantity">
-    <button class="minus-btn" type="button" name="button" onClick={untoggle} >-</button>
+    <button class="minus-btn" type="button" name="button" onClick={removeItems} >-</button>
     <input type="text" name="quantity" value={(count<=0)?0:count}></input>
-    <button class="plus-btn" type="button" name="button" onClick={toggle}>+</button>
+    <button class="plus-btn" type="button" name="button" onClick={addItems}>+</button>
   </div>
   <h2>Total Price = Rs. {(count<=0)?0:count * price }</h2>
   <button>Add to Cart</button>
